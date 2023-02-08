@@ -1,0 +1,41 @@
+import re
+import fileinput
+listoftweets=[]
+reader=open("C://Users//ALSHARKAOY//Desktop//bbchealth1.txt","r+")
+for line in reader.readlines():
+    listoftweets.append(line)
+newcase=[]
+listofcase=[]
+listofdel=[]
+listofdel2=[]
+listofdel3=[]
+listofdel4=[]
+listofdel5=[]
+listofdel6=[]
+listofdel7=[]
+listofdel8=[]
+for tweet in listoftweets:
+     words = tweet.lower()
+     newcase.append(words)
+# for tweet in newcase:
+#       words=tweet.split()
+#       listofcase.append(words)
+for tweet in newcase:
+       words= tweet.lower()
+       listofdel.append(words)
+for tweet in listofdel:
+     words = re.sub(r'http\S+','',str(tweet))
+     listofdel2.append(words)
+for tweet in listofdel2:
+     words=re.sub('\d+','',str(tweet))
+     listofdel3.append(words)
+for tweet in listofdel3:
+         words = re.sub('-|\%|\'|\@|\#|\€™|\%|\&|\:|\;|\€˜|\â|\£m|\.|\,|\n','',str(tweet))
+         listofdel4.append(words)
+for tweet in listofdel4:
+       words = re.sub(':|\?','',str(tweet))
+       listofdel5.append(words)
+for tweet in listofdel5:
+       slice=tweet[14:]
+       listofdel6.append(slice)
+print(listofdel6)
